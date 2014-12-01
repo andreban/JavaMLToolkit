@@ -43,11 +43,11 @@ public class FPTree implements Serializable {
             List<Transaction.Builder> allpaths = new ArrayList<>();
             for (FPNode child: childNodes.values()) {
                 List<Transaction.Builder> nodePath = child.buildConditionalTransactions(name);
-                for (Transaction.Builder ble: nodePath) {
+                for (Transaction.Builder transactionBuilder: nodePath) {
                     if (this.name != null) {
-                        ble.addItem(this.name);
+                        transactionBuilder.addItem(this.name);
                     }
-                    allpaths.add(ble);
+                    allpaths.add(transactionBuilder);
                 }
 
             }
