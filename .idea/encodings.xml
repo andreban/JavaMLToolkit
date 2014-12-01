@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/FPGrowth.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/FPGrowthRunner.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/FPTree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/FrequentItemSet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/ItemFrequency.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/ParallelFPGrowth.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/RegularFPGrowth.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/Transaction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/fpgrowth/TransactionSet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/kmeans/BaseCluster.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/kmeans/CentroidCalculator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/kmeans/Cluster.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/kmeans/DistanceCalculator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/kmeans/KMeans.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/naivebayes/NaiveBayesClassifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/naivebayes/NaiveBayesParameters.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/naivebayes/NaiveBayesTrainer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/bandarra/machinelearning/util/VecMath.java" charset="UTF-8" />
+  </component>
+</project>
