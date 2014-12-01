@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.bandarra.machinelearning.fpgrowth.RegularFPGrowthTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2014-12-01T18:19:45" hostname="andreban-Vostro-270s" time="0.058">
+  <properties/>
+  <testcase name="testParallelFPGrowth" classname="org.bandarra.machinelearning.fpgrowth.RegularFPGrowthTest" time="0.056"/>
+  <testcase name="testRegularFPGrowth" classname="org.bandarra.machinelearning.fpgrowth.RegularFPGrowthTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
