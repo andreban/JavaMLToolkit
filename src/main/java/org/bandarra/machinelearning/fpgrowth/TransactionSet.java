@@ -1,6 +1,7 @@
 package org.bandarra.machinelearning.fpgrowth;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by andreban on 28/07/14.
@@ -20,32 +21,22 @@ public class TransactionSet {
         Map<String, Integer> frequencies = new HashMap<>();
         for (Transaction transaction: transactionList) {
             for (String item: transaction.getItems()) {
-                Integer frequency = frequencies.get(item);
-                if (frequency == null) {
-                    frequency = transaction.getCount();
-                } else {
-                    frequency = frequency + transaction.getCount();
-                }
-                frequencies.put(item, frequency);
+                frequencies.merge(item, transaction.getCount(), Integer::sum);
             }
         }
-        List<ItemFrequency> frequencyList = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry: frequencies.entrySet()) {
-            frequencyList.add(new ItemFrequency(entry.getKey(), entry.getValue()));
-        }
-        Collections.sort(frequencyList);
-        return frequencyList;
+
+        return frequencies.entrySet()
+                .stream()
+                .map(entry -> new ItemFrequency(entry.getKey(), entry.getValue()))
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     public void sortTransactions(List<ItemFrequency> frequencies) {
-        final Map<String, Integer> nameFrequencyMap = new HashMap<>();
-        for (ItemFrequency f: frequencies) {
-            nameFrequencyMap.put(f.getName(), f.getCount());
-        }
+        Map<String, Integer> nameFrequencyMap =
+                frequencies.stream().collect(Collectors.toMap(ItemFrequency::getName, ItemFrequency::getCount));
 
-        for (Transaction t: transactionList) {
-            t.sortItems(nameFrequencyMap);
-        }
+        transactionList.forEach(t -> t.sortItems(nameFrequencyMap));
     }
 
     @Override

@@ -56,7 +56,7 @@ public class Transaction {
     }
 
     public void sortItems(final Map<String, Integer> itemPriorities) {
-        Collections.sort(this.items, (o1, o2) -> {
+        items.sort((o1, o2) -> {
             int result = Integer.compare(itemPriorities.get(o2), itemPriorities.get(o1));
             if (result != 0) {
                 return result;

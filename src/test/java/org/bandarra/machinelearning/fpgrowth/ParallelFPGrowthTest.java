@@ -8,10 +8,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by andreban on 01/12/14.
- */
-public class RegularFPGrowthTest {
+public class ParallelFPGrowthTest {
     private static String[][] transactions = {
             {"E", "A", "D", "B"},
             {"D", "A", "C", "E", "B"},
@@ -24,7 +21,7 @@ public class RegularFPGrowthTest {
     };
 
     @Test
-    public void testRegularFPGrowth() {
+    public void testParallelFPGrowth() {
         TransactionSet transactionSet = new TransactionSet();
         Arrays.stream(transactions)
                 .map(Transaction::new)
@@ -32,7 +29,7 @@ public class RegularFPGrowthTest {
 
         int minSupport = 1;//(int) Math.ceil(0.3 * transactionSet.getTransactions().size());
 
-        FPGrowth fpGrowth = new RegularFPGrowth();
+        FPGrowth fpGrowth = new ParallelFPGrowth();
         List<FrequentItemSet> frequentItemSetList = new ArrayList<>();
         fpGrowth.fpGrowth(transactionSet, minSupport, frequentItemSetList::add);
         assertEquals(31, frequentItemSetList.size());

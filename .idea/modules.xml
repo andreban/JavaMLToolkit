@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaMLToolkit.iml" filepath="$PROJECT_DIR$/JavaMLToolkit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaMLToolkit_main.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaMLToolkit_main.iml" group="JavaMLToolkit" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaMLToolkit_test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaMLToolkit_test.iml" group="JavaMLToolkit" />
     </modules>
   </component>
 </project>

@@ -86,19 +86,17 @@ public class KMeans<T> {
 
     private void updateClusters(List<Cluster<T>> clusters) {
         List<T> allValues = new ArrayList<>();
-        for (int i = 0; i < clusters.size();i++) {
-            Cluster<T> c = clusters.get(i);
+        clusters.forEach(c -> {
             allValues.addAll(c.getInstances());
             c.clear();
-        }
+        });
 
-        for (int i = 0; i < allValues.size(); i++) {
-            T value = allValues.get(i);
+        for (T value: allValues) {
             Cluster<T> bestCluster = null;
-            for (int j = 0; j < clusters.size(); j++) {
-                Cluster<T> c = clusters.get(j);
+            for (Cluster<T> c: clusters) {
                 if (bestCluster == null
-                        || distanceCalculator.getDistance(value, c.getCentroid()) < distanceCalculator.getDistance(value, bestCluster.getCentroid())) {
+                        || (distanceCalculator.getDistance(value, c.getCentroid())
+                        < distanceCalculator.getDistance(value, bestCluster.getCentroid()))) {
                     bestCluster = c;
                 }
             }

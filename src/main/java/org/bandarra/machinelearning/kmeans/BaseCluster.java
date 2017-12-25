@@ -3,6 +3,8 @@ package org.bandarra.machinelearning.kmeans;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Date: 11/26/13
@@ -34,11 +36,9 @@ public class BaseCluster<T> implements Cluster<T> {
 
     @Override
     public double getSSE() {
-        double total = 0;
-        for (T instance: instances) {
-            total += Math.pow(distanceCalculator.getDistance(instance, getCentroid()), 2);
-        }
-        return total;
+        return instances.stream()
+                .mapToDouble(instance -> Math.pow(distanceCalculator.getDistance(instance, getCentroid()), 2))
+                .sum();
     }
 
     @Override

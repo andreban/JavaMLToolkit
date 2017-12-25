@@ -37,7 +37,7 @@ public class FPTree implements Serializable {
             }
 
             if (this.childNodes.isEmpty()) {
-                Collections.emptyList();
+                return Collections.emptyList();
             }
 
             List<Transaction.Builder> allpaths = new ArrayList<>();

@@ -6,6 +6,7 @@ package org.bandarra.machinelearning.kmeans;
  *
  * @author andreban
  */
+@FunctionalInterface
 public interface DistanceCalculator<T> {
-    public double getDistance(T instance1, T instance2);
+    double getDistance(T instance1, T instance2);
 }

@@ -76,12 +76,14 @@ public class FPGrowthRunner {
             if (result != 0) {
                 return result;
             }
-            result = Integer.compare(o.baseFrequentItemSet.getItems().size(), this.baseFrequentItemSet.getItems().size());
+            result = Integer.compare(
+                    o.baseFrequentItemSet.getItems().size(), this.baseFrequentItemSet.getItems().size());
             if (result != 0) {
                 return result;
             }
 
-            return Integer.compare(o.recommendedFrequentItemSet.getFrequency(), this.recommendedFrequentItemSet.getFrequency());
+            return Integer.compare(
+                    o.recommendedFrequentItemSet.getFrequency(), this.recommendedFrequentItemSet.getFrequency());
         }
 
         @Override

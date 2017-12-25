@@ -14,7 +14,8 @@ public class NaiveBayesParameters<T extends Serializable, C extends Serializable
     private Map<C, Integer> classCount;
     private int numPosts;
 
-    public NaiveBayesParameters(Set<T> allTokens, Map<C, double[]> classProbabilities, Map<C, Integer> classCount, int numPosts) {
+    public NaiveBayesParameters(
+            Set<T> allTokens, Map<C, double[]> classProbabilities, Map<C, Integer> classCount, int numPosts) {
         this.allTokens = allTokens;
         this.classProbabilities = classProbabilities;
         this.classCount = classCount;

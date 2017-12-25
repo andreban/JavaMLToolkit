@@ -78,7 +78,6 @@ public class NaiveBayesTrainer<T extends Serializable, C extends Serializable> {
             classProbabilities.put(clazz, p);
         }         
         
-        NaiveBayesParameters<T, C> parameters = new NaiveBayesParameters<>(allTokens, classProbabilities, classCount, numPosts);
-        return parameters;
+        return new NaiveBayesParameters<>(allTokens, classProbabilities, classCount, numPosts);
     }
 }

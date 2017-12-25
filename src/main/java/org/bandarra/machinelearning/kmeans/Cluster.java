@@ -9,12 +9,12 @@ import java.util.List;
  * @author andreban
  */
 public interface Cluster<T> {
-    public void addInstance(T i);
-    public List<T> getInstances();
-    public double getSSE();
-    public T getCentroid();
-    public void calculateCentroid();
-    public void clear();
-    public T getFarthestPoint();
-    public boolean contains(Cluster<T> other);
+    void addInstance(T i);
+    List<T> getInstances();
+    double getSSE();
+    T getCentroid();
+    void calculateCentroid();
+    void clear();
+    T getFarthestPoint();
+    boolean contains(Cluster<T> other);
 }

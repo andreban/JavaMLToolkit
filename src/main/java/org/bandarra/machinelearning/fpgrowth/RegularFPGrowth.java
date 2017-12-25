@@ -11,41 +11,30 @@ import java.util.List;
 /**
  * http://en.wikipedia.org/wiki/Association_rule_learning
  */
-public class RegularFPGrowth implements FPGrowth {
+public class RegularFPGrowth extends AbstractFPGrowth {
     @Override
     public void fpGrowth(TransactionSet transactionSet, int minSupport,FrequentItemSetCollector collector) {
         fpGrowth(transactionSet,minSupport, new LinkedList<>(), collector, 0, transactionSet.size());
     }
 
     @Override
-    public void fpGrowth(FPTree fpTree, List<ItemFrequency> frequencies, int minSupport, LinkedList<String> list, FrequentItemSetCollector collector, int parentFrequency, int numTransactions) {
+    protected void fpGrowth(FPTree fpTree, List<ItemFrequency> frequencies, int minSupport, LinkedList<String> list,
+            FrequentItemSetCollector collector, int parentFrequency, int numTransactions) {
         for (ItemFrequency frequency: frequencies) {
-            if (frequency.getCount() >= minSupport) {
-                LinkedList<String> newList = new LinkedList<>(list);
-                newList.add(frequency.getName());
-
-                double support = ((double)frequency.getCount() / numTransactions);
-
-                FrequentItemSet frequentItemSet = new FrequentItemSet(new HashSet<>(newList), frequency.getCount(), support);
-                collector.collect(frequentItemSet);
-
-                TransactionSet freqTransactionSet = fpTree.buildConditionalTransactions(frequency.getName());
-                fpGrowth(freqTransactionSet, minSupport, newList, collector, frequency.getCount(), numTransactions);
-
+            if (frequency.getCount() < minSupport) {
+                continue;
             }
-        }
-    }
+            LinkedList<String> newList = new LinkedList<>(list);
+            newList.add(frequency.getName());
 
-    @Override
-    public void fpGrowth(TransactionSet transactionSet, int minSupport, LinkedList<String> list,
-                         FrequentItemSetCollector collector, int parentFrequency, int numTransactions) {
-        List<ItemFrequency> frequencies = transactionSet.calculateFrequencies();
-        transactionSet.sortTransactions(frequencies);
-        FPTree fpTree = new FPTree();
-        for (Transaction t: transactionSet.getTransactions()) {
-            fpTree.addTransaction(t);
-        }
+            double support = ((double)frequency.getCount() / numTransactions);
 
-        fpGrowth(fpTree, frequencies, minSupport, list, collector, parentFrequency, numTransactions);
+            FrequentItemSet frequentItemSet =
+                    new FrequentItemSet(new HashSet<>(newList), frequency.getCount(), support);
+            collector.collect(frequentItemSet);
+
+            TransactionSet freqTransactionSet = fpTree.buildConditionalTransactions(frequency.getName());
+            fpGrowth(freqTransactionSet, minSupport, newList, collector, frequency.getCount(), numTransactions);
+        }
     }
 }

@@ -56,7 +56,7 @@ public class NaiveBayesClassifier<T extends Serializable, C extends Serializable
         return results;
     }
     
-    private  double[] getWords(Set<T> allTokens, Set<T> tokenSet) {
+    private double[] getWords(Set<T> allTokens, Set<T> tokenSet) {
         double[] contains = new double[allTokens.size()];
         int i = 0;
         for (T token: allTokens) {

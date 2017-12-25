@@ -8,6 +8,7 @@ import java.util.Collection;
  *
  * @author andreban
  */
+@FunctionalInterface
 public interface CentroidCalculator<T> {
-    public T getCentroid(Collection<T> instances);
+    T getCentroid(Collection<T> instances);
 }
